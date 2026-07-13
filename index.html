@@ -5,9 +5,148 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>go-viet</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        background-color: #07101f;
+        color: #f6ead7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top, rgba(255, 216, 77, 0.09), transparent 22%),
+          radial-gradient(circle at 84% 12%, rgba(214, 31, 44, 0.16), transparent 24%),
+          radial-gradient(circle at 18% 78%, rgba(214, 31, 44, 0.12), transparent 26%),
+          linear-gradient(180deg, #091221 0%, #050c17 48%, #030812 100%);
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      .app-loading {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .app-loading__panel {
+        width: min(100%, 420px);
+        border: 1px solid rgba(255, 216, 77, 0.12);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(18, 27, 42, 0.98), rgba(11, 17, 28, 0.98));
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+        padding: 32px 28px;
+        text-align: center;
+      }
+
+      .app-loading__flag {
+        position: relative;
+        width: 48px;
+        height: 34px;
+        margin: 0 auto 18px;
+        border: 1px solid rgba(255, 216, 77, 0.28);
+        border-radius: 10px;
+        background: #d61f2c;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+      }
+
+      .app-loading__star {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 16px;
+        height: 16px;
+        color: #ffd84d;
+      }
+
+      .app-loading__eyebrow {
+        margin: 0 0 8px;
+        font-size: 12px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #ffd84d;
+      }
+
+      .app-loading__title {
+        margin: 0 0 10px;
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        color: #fff4dc;
+      }
+
+      .app-loading__status {
+        margin: 0;
+        font-size: 15px;
+        color: #d3b290;
+      }
+
+      .app-loading__dots::after {
+        content: '';
+        display: inline-block;
+        width: 1.2em;
+        text-align: left;
+        animation: loading-dots 1.2s steps(4, end) infinite;
+      }
+
+      @keyframes loading-dots {
+        0% {
+          content: '';
+        }
+
+        25% {
+          content: '.';
+        }
+
+        50% {
+          content: '..';
+        }
+
+        75%,
+        100% {
+          content: '...';
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="app-loading" aria-live="polite" aria-label="Loading application">
+        <div class="app-loading__panel">
+          <div class="app-loading__flag" aria-hidden="true">
+            <svg
+              class="app-loading__star"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="m12 2.8 2.33 6.2 6.61.24-5.21 4.08 1.87 6.35L12 15.98l-5.6 3.7 1.87-6.35-5.2-4.08 6.6-.24L12 2.8Z" />
+            </svg>
+          </div>
+          <p class="app-loading__eyebrow">Gõ Việt</p>
+          <p class="app-loading__title">Loading</p>
+          <p class="app-loading__status">
+            Preparing the trainer<span class="app-loading__dots"></span>
+          </p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -55,7 +55,7 @@ export function PromptCard({ audioPath, word }: PromptCardProps) {
               aria-label="Toggle pronunciation autoplay"
               aria-pressed={isAutoPlayEnabled}
               className={[
-                'rounded-full border px-3 py-2 text-xs uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gv-gold) focus-visible:ring-offset-2 focus-visible:ring-offset-(--gv-ring-offset)',
+                'cursor-pointer rounded-full border px-3 py-2 text-xs uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gv-gold) focus-visible:ring-offset-2 focus-visible:ring-offset-(--gv-ring-offset)',
                 isAutoPlayEnabled
                   ? 'border-(--gv-border-strong) bg-(--gv-audio-toggle-on) text-(--gv-heading)'
                   : 'border-(--gv-border) bg-(--gv-audio-toggle-off) text-(--gv-label)',

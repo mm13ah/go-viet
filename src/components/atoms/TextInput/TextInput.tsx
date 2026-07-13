@@ -27,8 +27,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           autoCorrect="off"
           className={[
             'w-full rounded-3xl border border-(--gv-border-strong) bg-(--gv-input-bg) px-5 py-4 text-lg',
-            'text-[#fff2d9] shadow-[0_0_0_1px_rgba(255,216,77,0.08),0_0_0_4px_rgba(255,191,63,0.05)] outline-none',
-            'text-(--gv-input-text) placeholder:text-(--gv-input-placeholder)',
+            'text-(--gv-input-text) shadow-[0_0_0_1px_rgba(255,216,77,0.08),0_0_0_4px_rgba(255,191,63,0.05)] outline-none',
+            'placeholder:text-(--gv-input-placeholder)',
             'focus-visible:border-(--gv-gold) focus-visible:ring-2 focus-visible:ring-[rgba(255,212,74,0.7)]',
             className,
           ].join(' ')}

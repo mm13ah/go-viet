@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useTelexTrainer, useTheme } from '../../../hooks';
 import { getAudioPath } from '../../../lib';
 import { Button, TextInput } from '../../atoms';
-import { HintPanel, PromptCard } from '../../molecules';
+import { HintPanel, LoadingPanel, PromptCard } from '../../molecules';
 
 export function TelexTrainer() {
   const {
@@ -22,21 +22,7 @@ export function TelexTrainer() {
   }, [currentWord]);
 
   if (!currentWord) {
-    return (
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-10">
-        <header className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.24em] text-(--gv-gold)">
-            Gõ Việt
-          </p>
-          <h1 className="text-2xl font-semibold tracking-tight text-(--gv-heading)">
-            Vietnamese Telex trainer
-          </h1>
-        </header>
-        <section className="rounded-[28px] border border-(--gv-border-soft) bg-[linear-gradient(180deg,var(--gv-card-top),var(--gv-card-bottom))] p-6 text-(--gv-copy)">
-          Loading words...
-        </section>
-      </div>
-    );
+    return <LoadingPanel fullScreen />;
   }
 
   const currentAudioPath = getAudioPath(currentWord);
