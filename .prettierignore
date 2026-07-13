@@ -1,0 +1,9 @@
+coverage
+dist
+node_modules
+.venv
+public/audio/*.onnx
+public/audio/*.onnx.json
+public/audio/.tmp-*
+public/audio/*.wav
+public/audio/*.mp3
