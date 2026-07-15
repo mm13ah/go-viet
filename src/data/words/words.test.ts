@@ -36,8 +36,13 @@ describe('parseTrainerWords', () => {
     expect(normalizeTrainerEntry('khỏanh khắc')).toBe('khoảnh khắc');
     expect(normalizeTrainerEntry('thuỷ')).toBe('thủy');
     expect(normalizeTrainerEntry('thác lọan')).toBe('thác loạn');
+    expect(normalizeTrainerEntry('điện tóan đám mây')).toBe(
+      'điện toán đám mây',
+    );
     expect(
-      parseTrainerWords('hoá\nkhoẻ\nbánh khóai\nkhỏanh khắc\nthủy\nthác lọan'),
+      parseTrainerWords(
+        'hoá\nkhoẻ\nbánh khóai\nkhỏanh khắc\nthủy\nthác lọan\nđiện tóan đám mây',
+      ),
     ).toEqual([
       'hóa',
       'khỏe',
@@ -45,6 +50,7 @@ describe('parseTrainerWords', () => {
       'khoảnh khắc',
       'thủy',
       'thác loạn',
+      'điện toán đám mây',
     ]);
   });
 });

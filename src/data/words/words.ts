@@ -87,6 +87,16 @@ const LEGACY_OA_GLIDE_PATTERNS = [
   [/Ỏa(?=nh)/gu, 'Oả'],
   [/Õa(?=nh)/gu, 'Oã'],
   [/Ọa(?=nh)/gu, 'Oạ'],
+  [/óa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'oá'],
+  [/òa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'oà'],
+  [/ỏa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'oả'],
+  [/õa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'oã'],
+  [/ọa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'oạ'],
+  [/Óa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'Oá'],
+  [/Òa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'Oà'],
+  [/Ỏa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'Oả'],
+  [/Õa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'Oã'],
+  [/Ọa(?=(?:c|ch|m|n|ng|p|t)\b)/gu, 'Oạ'],
 ] as const;
 
 let trainerWordsPromise: Promise<string[]> | null = null;
