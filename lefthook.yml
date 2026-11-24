@@ -1,0 +1,48 @@
+# Hooks are a local convenience and can be bypassed; CI is authoritative.
+pre-commit:
+  parallel: true
+  commands:
+    secrets:
+      run: node scripts/check-secrets.mjs --staged
+    format:
+      glob: '*.{ts,tsx,js,mjs,json,css,md,yml,yaml}'
+      run: npm run format:check
+    lint:
+      glob: '*.{ts,tsx,js,mjs}'
+      run: npm run lint
+    typecheck:
+      glob: '*.{ts,tsx,json}'
+      run: npm run typecheck
+    dependencies:
+      glob: 'src/**/*.{ts,tsx}'
+      run: npm run check:deps
+    structure:
+      glob: 'src/components/**'
+      run: npm run check:structure
+    suppressions:
+      glob: '*.{ts,tsx,js,mjs}'
+      run: npm run check:suppressions
+    tests:
+      glob: '*.{ts,tsx,mjs}'
+      run: npm run test:run
+    dead-code:
+      glob: '*.{ts,tsx,mjs,json}'
+      run: npm run check:dead-code
+    build:
+      glob: '{src/**,index.html,vite.config.ts,tsconfig*.json,package.json,package-lock.json}'
+      run: npm run build
+
+pre-push:
+  parallel: false
+  commands:
+    secrets:
+      run: if git rev-parse --verify -q origin/main >/dev/null; then node scripts/check-secrets.mjs --range origin/main..HEAD; else echo "no origin/main yet, skipping range scan"; fi
+    audit:
+      run: npm run check:audit
+    storybook:
+      run: npm run build-storybook
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npm run commitlint -- --edit {1}
