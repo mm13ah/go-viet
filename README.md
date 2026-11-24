@@ -28,8 +28,8 @@ Progress is stored locally in `localStorage`, including:
 
 Requirements:
 
-- Node.js 20+
-- npm
+- Node.js 22.22.2 (see `.nvmrc`)
+- npm 10.9.7
 
 Install dependencies:
 
@@ -56,6 +56,21 @@ npm run dev
 - `npm run lint:fix`: run Oxlint with autofix
 - `npm run format`: format the repository with Prettier
 - `npm run format:check`: check formatting without writing changes
+- `npm run check`: run the fast CI suite locally
+- `npm run check:all`: run the fast suite and the runtime dependency audit
+- `npm run check:deps`: enforce import direction and reject dependency cycles
+- `npm run check:structure`: enforce the component folder and barrel conventions
+- `npm run check:dead-code`: find unused files, exports, and dependencies
+- `npm run storybook`: develop components in Storybook
+- `npm run build-storybook`: verify every component story builds
+
+Installing dependencies also installs Lefthook. Commits run the fast checks and
+secret scan; pushes run the runtime dependency audit and scan the commits being
+pushed. Commit messages follow the Conventional Commits format. Secret scanning
+uses a local `gitleaks` binary when available and otherwise requires Docker.
+The structure check requires every component to have a colocated test, every
+atom and molecule to have a Storybook story, and every component/layer barrel
+to exactly match its folders.
 
 ## Audio Generation
 

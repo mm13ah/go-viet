@@ -28,9 +28,21 @@
         margin: 0;
         min-height: 100vh;
         background:
-          radial-gradient(circle at top, rgba(255, 216, 77, 0.09), transparent 22%),
-          radial-gradient(circle at 84% 12%, rgba(214, 31, 44, 0.16), transparent 24%),
-          radial-gradient(circle at 18% 78%, rgba(214, 31, 44, 0.12), transparent 26%),
+          radial-gradient(
+            circle at top,
+            rgba(255, 216, 77, 0.09),
+            transparent 22%
+          ),
+          radial-gradient(
+            circle at 84% 12%,
+            rgba(214, 31, 44, 0.16),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at 18% 78%,
+            rgba(214, 31, 44, 0.12),
+            transparent 26%
+          ),
           linear-gradient(180deg, #091221 0%, #050c17 48%, #030812 100%);
       }
 
@@ -50,7 +62,11 @@
         width: min(100%, 420px);
         border: 1px solid rgba(255, 216, 77, 0.12);
         border-radius: 28px;
-        background: linear-gradient(180deg, rgba(18, 27, 42, 0.98), rgba(11, 17, 28, 0.98));
+        background: linear-gradient(
+          180deg,
+          rgba(18, 27, 42, 0.98),
+          rgba(11, 17, 28, 0.98)
+        );
         box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
         padding: 32px 28px;
         text-align: center;
@@ -128,7 +144,11 @@
   </head>
   <body>
     <div id="root">
-      <div class="app-loading" aria-live="polite" aria-label="Loading application">
+      <div
+        class="app-loading"
+        aria-live="polite"
+        aria-label="Loading application"
+      >
         <div class="app-loading__panel">
           <div class="app-loading__flag" aria-hidden="true">
             <svg
@@ -136,7 +156,9 @@
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="m12 2.8 2.33 6.2 6.61.24-5.21 4.08 1.87 6.35L12 15.98l-5.6 3.7 1.87-6.35-5.2-4.08 6.6-.24L12 2.8Z" />
+              <path
+                d="m12 2.8 2.33 6.2 6.61.24-5.21 4.08 1.87 6.35L12 15.98l-5.6 3.7 1.87-6.35-5.2-4.08 6.6-.24L12 2.8Z"
+              />
             </svg>
           </div>
           <p class="app-loading__eyebrow">Gõ Việt</p>
